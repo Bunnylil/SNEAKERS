@@ -64,7 +64,8 @@ document.addEventListener("DOMContentLoaded", () => {
       event.preventDefault();
 
       const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
+      const passwordInput = document.getElementById("password");
+      const password = passwordInput.value;
       const termsChecked = document.getElementById("terms").checked;
 
       // Validate input
@@ -90,6 +91,22 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       } catch (error) {
         alert("Something went wrong. Please try again.");
+      }
+    });
+  }
+
+  // Toggle Password Visibility
+  const togglePasswordBtn = document.querySelector(".toggle-password");
+  const passwordInput = document.getElementById("password");
+  
+  if (togglePasswordBtn && passwordInput) {
+    togglePasswordBtn.addEventListener("click", () => {
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        togglePasswordBtn.classList.replace("fa-eye-slash", "fa-eye");
+      } else {
+        passwordInput.type = "password";
+        togglePasswordBtn.classList.replace("fa-eye", "fa-eye-slash");
       }
     });
   }
