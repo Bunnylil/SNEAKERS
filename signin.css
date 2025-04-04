@@ -132,6 +132,21 @@
     right: 10px;
     cursor: pointer;
   }
+
+  .forgot-password {
+    text-align: right;
+    margin: 10px 0;
+  }
+  
+  .forgot-password a {
+    color: green;
+    text-decoration: none;
+    font-size: 0.9em;
+  }
+  
+  .forgot-password a:hover {
+    text-decoration: underline;
+  }
   .password-strength {
     display: flex;
     gap: 4px;

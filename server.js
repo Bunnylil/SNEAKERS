@@ -67,6 +67,36 @@ app.post("/signup", async (req, res) => {
     }
 });
 
+// Sign-in Route
+// Sign-in Route
+app.post("/signin", async (req, res) => {
+    try {
+        const { email, password } = req.body;
+
+        // Check if user exists
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(400).json({ error: "User is not registered" });
+        }
+
+        // Determine sign-in method
+        let signInMethod = user.signupMethod || "manual"; // Default to manual if not stored
+
+        // Compare passwords only for manual sign-ins
+        if (signInMethod === "manual") {
+            const isMatch = await bcrypt.compare(password, user.password);
+            if (!isMatch) {
+                return res.status(400).json({ error: "Invalid email or password" });
+            }
+        }
+
+        res.status(200).json({ message: "Login Successful", user, signInMethod });
+    } catch (error) {
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+});
+
+
   
 
 // Start Server
