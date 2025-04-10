@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const data = await response.json();
         if (response.ok) {
           alert(`Welcome, ${user.displayName}! You signed in using Google.`);
-          window.location.href = "dashone.html"; // Redirect to dashboard
+          window.location.href = "sload.html"; // Redirect to dashboard
         } else {
           alert(data.error);
         }
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (response.ok) {
           alert("Login Successful! You signed in using Email/Password.");
-          window.location.href = "dashone.html"; // Redirect to dashboard
+          window.location.href = "sload.html"; // Redirect to dashboard
         } else {
           alert(data.error); // Show error message
         }

@@ -26,8 +26,8 @@ const userSchema = new mongoose.Schema({
     email: String,
     countryCode: String,
     phone: String,
-    password: String, // Password will be empty for social sign-ups
-    signupMethod: String, // 'manual' or 'google' or 'twitter' or 'facebook'
+    password: String, 
+    signupMethod: String, 
   });
   
   const User = mongoose.model("User", userSchema);
@@ -80,7 +80,7 @@ app.post("/signin", async (req, res) => {
         }
 
         // Determine sign-in method
-        let signInMethod = user.signupMethod || "manual"; // Default to manual if not stored
+        let signInMethod = user.signupMethod || "manual"; 
 
         // Compare passwords only for manual sign-ins
         if (signInMethod === "manual") {
