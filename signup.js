@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const data = await response.json();
         if (response.ok) {
           alert(`Welcome, ${user.displayName}! Redirecting...`);
-          window.location.href = "sload.html";
+          window.location.href = "sign.html";
         } else {
           alert(`Sign-Up Failed: ${data.error}`);
         }
@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const data = await response.json();
         if (response.ok) {
           alert("Sign up successful! Redirecting...");
-          window.location.href = "sload.html";
+          window.location.href = "sign.html";
         } else {
           alert(`Sign up failed: ${data.error}`);
         }

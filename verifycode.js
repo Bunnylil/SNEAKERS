@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Code is correct, proceed to password reset page
             setTimeout(() => {
-                window.location.href = `reset-password.html?email=${encodeURIComponent(email)}`;
+                window.location.href = `resetpassword.html?email=${encodeURIComponent(email)}`;
             }, 1000);
         } else {
             alert('Invalid code. Please try again.');
