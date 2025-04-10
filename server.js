@@ -96,6 +96,35 @@ app.post("/signin", async (req, res) => {
     }
 });
 
+// Password Reset Route
+app.post("/request-password-reset", async (req, res) => {
+    try {
+      const { email } = req.body;
+  
+      // Check if user exists
+      const user = await User.findOne({ email });
+      if (!user) {
+        return res.status(404).json({ error: "User not found" });
+      }
+  
+      // Generate 4-digit random code (1000-9999)
+      const resetCode = Math.floor(1000 + Math.random() * 9000).toString();
+  
+      // In production, you would send this code via email
+      console.log(`Reset code for ${email}: ${resetCode}`); // For testing
+  
+      res.status(200).json({ 
+        message: "Reset code generated", 
+        resetCode,
+        email
+      });
+      
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+});
+
 
   
 
